@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidTraining</string>
+    <string name="welcome_msg">Welome to Android World</string>
+    <string name="login">Login</string>
+    <string name="username">User name</string>
+    <string name="password">Password</string>
+    <string name="signup">Sing Up</string>
+    <string name="loginmsg">Login Here</string>
+</resources>
