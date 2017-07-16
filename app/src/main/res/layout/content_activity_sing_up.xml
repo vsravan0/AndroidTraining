@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.edu.sra.trainings.ActivitySingUp"
+    tools:showIn="@layout/layout_singup">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Your details"
+        android:gravity="center"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/text_size"
+
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_et_username_signup"
+        android:hint="Enter Name"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_et_password_signup"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_et_mail"
+        android:hint="Enter Mail"
+        android:inputType="textEmailAddress"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="country"
+            android:textSize="@dimen/text_size"
+            android:gravity="center"
+            />
+        <Spinner
+
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+android:id="@+id/id_sp_countries"
+            android:entries="@array/countries"
+            />
+    </LinearLayout>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/male"
+
+            android:id="@+id/id_rb_maile"
+            />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/female"
+
+            android:id="@+id/id_rb_femaile"
+            />
+
+    </RadioGroup>
+
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top"
+        android:text="@string/accept"
+        android:id="@+id/id_checkbox"
+        />
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:layout_weight="1"
+        android:id="@+id/id_btn_login_signup"
+        />
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/clear"
+        android:layout_weight="1"
+        android:id="@+id/id_btn_clear"
+
+        />
+
+
+</LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
