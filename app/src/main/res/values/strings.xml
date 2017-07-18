@@ -10,7 +10,7 @@
     <string name="male">Male</string>
     <string name="female">fe Male</string>
     <string name="gender">Gender</string>
-<string name="accept">Accept terms and conditions </string>
+    <string name="accept">Accept terms and conditions </string>
     <string name="clear">clear</string>
     <string-array name="countries">
 
@@ -22,4 +22,5 @@
         <item>Australia</item>
 
     </string-array>
+    <string name="title_activity_user_details">UserDetails</string>
 </resources>
