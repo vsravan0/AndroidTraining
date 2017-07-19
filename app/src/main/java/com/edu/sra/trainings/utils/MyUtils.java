@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.edu.sra.trainings.database.MyDataBase;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,9 +31,24 @@ public class MyUtils {
 
      */
 
-    // Save data
 
-    public static void saveUserData(Context ctx, EntityUser entityUser) {
+    public static long saveUserDataInDb(Context ctx, EntityUser entityUser) {
+        MyDataBase db = new MyDataBase(ctx);
+        long rowId = db.insertData(entityUser);
+        return rowId;
+
+    }
+
+    public static boolean checkUser(Context ctx, String userName, String password) {
+        MyDataBase db = new MyDataBase(ctx);
+        return db.checkUser(userName, password);
+
+
+    }
+
+    // Save data in share dpreference
+
+    public static void saveUserDataInPreference(Context ctx, EntityUser entityUser) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(ctx);
         SharedPreferences.Editor edit = pref.edit();
         edit.putBoolean("gender", entityUser.isMale());

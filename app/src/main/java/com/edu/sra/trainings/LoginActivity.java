@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.edu.sra.trainings.utils.EntityUser;
 import com.edu.sra.trainings.utils.MyUtils;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
@@ -51,6 +50,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void login() {
 
+        /*
         EntityUser savedUser = MyUtils.getUserData(getApplicationContext());
 
         if (savedUser.getUserName().length() == 0) {
@@ -58,13 +58,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Toast.LENGTH_LONG).show();
             return;
 
-        }
+        } */
 
         String userName = mEtUserName.getText().toString().trim();
         String password = mEtPassword.getText().toString().trim();
 
-        if (userName.equalsIgnoreCase(savedUser.getUserName()) && password.equals(savedUser.getUserPassword())) {
 
+        boolean isLoginSuccess = MyUtils.checkUser(getApplicationContext(), userName, password);
+
+        //if (userName.equalsIgnoreCase(savedUser.getUserName()) && password.equals(savedUser.getUserPassword())) {
+
+        if (isLoginSuccess) {
             Intent intent = new Intent(LoginActivity.this, UserDetails.class);
             startActivity(intent);
 

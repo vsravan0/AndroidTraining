@@ -26,4 +26,31 @@ public class UserDetails extends AppCompatActivity {
         });
     }
 
+    /*
+    Shared Preference: store data in the form of key and values
+    key : String
+    value : int , float , double , boolean ( primitive ) , String
+
+    Save mutliple Student Details :
+
+    1) Name , rno , age grade ,
+
+    SQL Lite : light weight database
+
+
+    Android DB :
+
+    Inbulit
+
+
+
+    SqliteOpenHelper: to create Database
+
+    SqliteDatabase : Create some tables , perform some operations on table ( insert , delete , update )
+
+    Cursor : get Some data from Data Base
+    Contentvalues : to Store some data in specifc table
+
+     */
+
 }

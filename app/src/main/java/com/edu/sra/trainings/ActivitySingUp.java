@@ -105,8 +105,13 @@ public class ActivitySingUp extends AppCompatActivity implements View.OnClickLis
 
 
         EntityUser user = new EntityUser(userName, email, password, isMale);
-        MyUtils.saveUserData(getApplicationContext(), user);
-        showTost("Saved successfully");
+        long insertedId = MyUtils.saveUserDataInDb(getApplicationContext(), user);
+        if (insertedId != -1) {
+            showTost("Saved successfully rowId :" + insertedId);
+        } else {
+            showTost("Some error :" + insertedId);
+        }
+
         finish(); // Remove Activity from Android stack
 
     }
