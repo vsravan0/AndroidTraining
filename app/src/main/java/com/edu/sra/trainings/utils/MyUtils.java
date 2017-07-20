@@ -3,9 +3,17 @@ package com.edu.sra.trainings.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.edu.sra.trainings.database.MyDataBase;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,12 +24,8 @@ import java.util.regex.Pattern;
 public class MyUtils {
 
 
-    public static boolean isEmailValid(String email) {
-        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
-        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
+    // Load The data
+    public static final String TAG = "MyUtils";
     /* Shared prefences : We can store primitaive data ( int , flaot, char , String , boolean )
     in the form of XML based on key and values
   SharedPrefence
@@ -31,6 +35,12 @@ public class MyUtils {
 
      */
 
+    public static boolean isEmailValid(String email) {
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
 
     public static long saveUserDataInDb(Context ctx, EntityUser entityUser) {
         MyDataBase db = new MyDataBase(ctx);
@@ -39,14 +49,14 @@ public class MyUtils {
 
     }
 
+    // Save data in share dpreference
+
     public static boolean checkUser(Context ctx, String userName, String password) {
         MyDataBase db = new MyDataBase(ctx);
         return db.checkUser(userName, password);
 
 
     }
-
-    // Save data in share dpreference
 
     public static void saveUserDataInPreference(Context ctx, EntityUser entityUser) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(ctx);
@@ -71,5 +81,47 @@ public class MyUtils {
         return entityUser;
     }
 
+    public static String loadData(String path) {
+        String response = "";
+
+        try {
+
+            URL url = new URL(path); // URL object
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.connect(); // will try to connect
+            int responseCode = connection.getResponseCode(); // Get Response code
+            Log.v(TAG, "loadData responseCode: " + responseCode);
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                InputStream isr = connection.getInputStream(); // Get the data as InputStream
+                response = convertStreamtoString(isr);
+
+            }
+
+        } catch (MalformedURLException e) {
+            Log.v(TAG, "loadData : " + e.toString());
+        } catch (IOException e) {
+            Log.v(TAG, "loadData : " + e.toString());
+        }
+        return response;
+
+
+    }
+
+    private static String convertStreamtoString(InputStream isr) {
+        try {
+            BufferedReader buf = new BufferedReader(new InputStreamReader(isr));
+            String data = "";
+            StringBuffer response = new StringBuffer();
+            while ((data = buf.readLine()) != null) {
+                response.append(data);
+            }
+
+            Log.v(TAG, " Response :" + response);
+            return response.toString();
+        } catch (IOException e) {
+            Log.v(TAG, " convertStreamtoString :" + e.toString());
+            return "";
+        }
+    }
 
 }

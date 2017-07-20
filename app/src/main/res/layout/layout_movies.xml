@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/id_btn_loaddata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="loadData"
+        android:text="Load Data" />
+
+    <TextView
+        android:id="@+id/id_tv_response"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_btn_loaddata"
+        android:text="Response"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <ListView
+        android:id="@+id/id_lv_videos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_tv_response" />
+
+    <ProgressBar
+
+        android:id="@+id/id_progress"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>
