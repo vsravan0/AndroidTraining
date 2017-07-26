@@ -1,5 +1,6 @@
 package com.edu.sra.trainings;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -49,7 +50,20 @@ public class ActivityMovies extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+
+        EntitiyMovie movie = list.get(position);
+
+        Intent intent = new Intent(this, MovieInfoActivity.class);
+        intent.putExtra(Constants.KEY_MOVIE, movie);
+
+        startActivity(intent);
+
+
+
+
+
         Toast.makeText(getApplicationContext(), " Cliked Item :" + position, Toast.LENGTH_LONG).show();
+
 
     }
 

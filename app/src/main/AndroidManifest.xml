@@ -3,34 +3,44 @@
     package="com.edu.sra.trainings">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".TrainingApp"
         android:allowBackup="true"
         android:icon="@mipmap/myicon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/myicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityMovies">
+        <activity android:name=".utils.ActivityUber">
+
+        </activity>
+        <activity
+            android:name=".ActivitySingUp"
+
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserDetails"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MovieInfoActivity"
+
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ActivitySplash"
+            android:noHistory="true"
+
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ActivitySingUp"
-            android:label="@string/title_activity_sing_up"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".UserDetails"
-            android:label="@string/title_activity_user_details"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
-
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_user_details"
-            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

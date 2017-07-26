@@ -1,10 +1,12 @@
 package com.edu.sra.trainings.utils;
 
+import java.io.Serializable;
+
 /**
  * Created by sravan on 21/07/17.
  */
 
-public class EntitiyMovie {
+public class EntitiyMovie implements Serializable {
     private int vote_count;
     private int id;
     private boolean video;
