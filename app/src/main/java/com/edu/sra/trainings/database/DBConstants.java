@@ -7,7 +7,7 @@ package com.edu.sra.trainings.database;
 public class DBConstants {
 
     static final String DB_NAME = "androidtraining";
-    static final String TAB_NAME = "user";
+    static final String TAB_NAME = "Employe";
     static final int DB_VERSION = 1001;
 
 

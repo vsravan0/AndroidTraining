@@ -9,6 +9,7 @@
     tools:context="com.edu.sra.trainings.MovieInfoActivity"
     tools:showIn="@layout/activity_movie_info">
 
+
     <TextView
         android:id="@+id/id_tv_id"
         style="@style/textview_movie" />
